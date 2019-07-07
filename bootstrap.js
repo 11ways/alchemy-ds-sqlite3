@@ -1,0 +1,1 @@
+alchemy.requirePlugin('ds-sql');

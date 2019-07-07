@@ -1,0 +1,15 @@
+{
+	"name": "alchemy-ds-sqlite3",
+	"description": "SQLite3 datasource plugin for Alchemy MVC",
+	"version": "0.1.0",
+	"repository": "skerit/alchemy-ds-sqlite3",
+	"dependencies": {
+		"sqlite3"   : "~4.0.9",
+		"mongo-sql" : "~6.2.0"
+	},
+	"license": "MIT",
+	"engines": {
+		"node": ">=8.0.0"
+	},
+	"private": true
+}
