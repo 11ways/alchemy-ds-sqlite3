@@ -168,9 +168,16 @@ SqliteDS.setMethod(function execQuery(sql, params, run) {
 SqliteDS.decorateMethod(Blast.Decorators.memoize({ignore_arguments: true}), function connect() {
 
 	var that = this,
-	    pledge = new Pledge();
+	    pledge = new Pledge(),
+	    mode;
 
-	let db = new sqlite3.Database(this.options.path, function connected(err) {
+	if (this.options.create === false && this.options.update === false) {
+		mode = sqlite3.OPEN_READONLY;
+	} else {
+		mode = mode.OPEN_READWRITE | mode.OPEN_CREATE;
+	}
+
+	let db = new sqlite3.Database(this.options.path, mode, function connected(err) {
 
 		if (err) {
 			pledge.reject(err);
